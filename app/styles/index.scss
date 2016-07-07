@@ -26,6 +26,22 @@ body {
   z-index: -1;
 }
 
+#admin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10%;
+  width: 100%;
+  font-size: 36px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0 1%;
+  display: none;
+  .emoji {
+    width: 36px;
+    height: 36px;
+  }
+}
+
 .flex-center {
   display: flex;
   align-items: center;
@@ -53,14 +69,18 @@ body {
   p {
     animation: marquee 8s linear infinite;
   }
-  p:hover {
-    animation-play-state: paused;
-  }
+  //p:hover {
+  //  animation-play-state: paused;
+  //}
 }
 
 #logo {
   width: 20%;
   height: 100%;
+  img {
+    width: 256px;
+    height: 256px;
+  }
 }
 
 @keyframes marquee {
@@ -78,10 +98,18 @@ body {
   list-style: none;
 }
 
-.row {
+.row,
+.animate-transition {
+  transition: all .3s ease;
   margin: 1%;
   height: 30%;
   background: rgba(0, 0, 0, 0.5);
+}
+
+.animate-enter,
+.animate-leave {
+  height: 0;
+  opacity: 0;
 }
 
 .msg-left {
@@ -97,6 +125,10 @@ body {
   white-space: nowrap;
   width: 100%;
   height: 20%;
+  .emoji {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .msg-avatar {
@@ -117,9 +149,31 @@ body {
 
 .msg-msg {
   font-size: 24px;
+  .emoji {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 @media screen and (max-width: 767px) {
+  #logo img {
+    width: 128px;
+    height: 128px;
+  }
+
+  .msg-avatar img {
+    width: 96px;
+    height: 96px;
+    border-radius: 100%;
+  }
+}
+
+@media screen and (max-height: 767px) {
+  #logo img {
+    width: 128px;
+    height: 128px;
+  }
+
   .msg-avatar img {
     width: 96px;
     height: 96px;

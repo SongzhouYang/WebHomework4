@@ -9,6 +9,10 @@ $(() => {
     type: 'get',
     async: false,
     success: (data) => {
+      data.forEach((element, index, array) => {
+        data[index].nickname = twemoji.parse(data[index].nickname);
+        data[index].content = twemoji.parse(data[index].content);
+      });
       Array.prototype.push.apply(oldData, data);
     }
   });
@@ -16,17 +20,24 @@ $(() => {
   const nomMsg = new Vue({
     el: '#container',
     data: {
-      items: oldData
+      items: oldData.reverse()
     }
   });
 
   const admMsg = new Vue({
-    
+    el: '#admin',
+    data: {
+      item: ''
+    }
   });
 
-  Vue.transition('animate', {
-    enterClass: 'slideInRight',
-    leaveClass: 'slideOutLeft'
+  let timeID = 0;
+  $('#admin').bind('DOMSubtreeModified', () => {
+    clearTimeout(timeID);
+    $('#admin').css('display', 'flex');
+    timeID = setTimeout(() => {
+      $('#admin').css('display', 'none');
+    }, 10000);
   });
 
   const socket = io.connect(hostAddress);
@@ -37,8 +48,8 @@ $(() => {
 
   socket.on('new message', (data) => {
     let item = {
-      content: data.content || '未接收到消息',
-      nickname: data.nickname || '匿名用户',
+      content: twemoji.parse(data.content) || '未接收到消息',
+      nickname: twemoji.parse(data.nickname) || '匿名用户',
       headimgurl: data.headimgurl || '/images/anonymous.jpg'
     };
     console.log(item);
@@ -49,6 +60,7 @@ $(() => {
   });
 
   socket.on('admin', (data) => {
-    console.log(data);
+    admMsg.item = twemoji.parse(data.content);
+    console.log(admMsg.item);
   });
 });

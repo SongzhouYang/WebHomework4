@@ -11,7 +11,6 @@
 
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="/bower_components/animate.css/animate.css"/>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -28,28 +27,30 @@
 
 <img src="images/background.jpg" alt="" id="background">
 
+<div id="admin" class="flex-center">管理员：{{{ item }}}</div>
+
 <div id="main-body">
   <header id="header" class="flex-center">
     <div id="marquee" class="marquee flex-center">
-      <p>Marquee</p>
+      <p>这是一条很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的公告</p>
     </div>
     <div id="logo" class="flex-center">
-      Logo
+      <img src="images/logo.png" alt="">
     </div>
   </header>
   <ul id="container">
-    <li transition="animate" v-for="item in items" class="row">
+    <li transition="animate" v-for="item in items" class="row animated">
       <div class="msg-left flex-center">
         <div class="msg-nickname flex-center">
-          {{ item.nickname }}
+          {{{ item.nickname }}}
         </div>
         <div class="msg-avatar flex-center">
           <img :src="item.headimgurl" alt="avatar">
         </div>
       </div>
       <div class="msg-right flex-center">
-        <div class="msg-msg">
-          {{ item.content }}
+        <div class="msg-msg flex-center">
+          {{{ item.content }}}
         </div>
       </div>
     </li>
@@ -79,6 +80,7 @@
 <script src="/bower_components/jquery/dist/jquery.js"></script>
 <script src="/bower_components/socket.io-client/socket.io.js"></script>
 <script src="/bower_components/vue/dist/vue.js"></script>
+<script src="/bower_components/twemoji/2/twemoji.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
