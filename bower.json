@@ -1,0 +1,14 @@
+{
+  "name": "webhomework4",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "vue": "^1.0.26",
+    "socket.io-client": "^1.4.8",
+    "animate.css": "^3.5.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
+}
