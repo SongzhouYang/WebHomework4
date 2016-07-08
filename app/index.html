@@ -25,7 +25,7 @@
   your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<img src="images/background.jpg" alt="" id="background">
+<img src="images/background.jpg" alt="background" id="background" class="lazy">
 
 <div id="admin" class="flex-center">管理员：{{{ item }}}</div>
 
@@ -35,7 +35,7 @@
       <p>这是一条很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的公告</p>
     </div>
     <div id="logo" class="flex-center">
-      <img src="images/logo.png" alt="">
+      <img src="images/logo.png" alt="logo" class="lazy">
     </div>
   </header>
   <ul id="container">
@@ -45,7 +45,7 @@
           {{{ item.nickname }}}
         </div>
         <div class="msg-avatar flex-center">
-          <img :src="item.headimgurl" alt="avatar">
+          <img :src="item.headimgurl" alt="avatar" class="lazy">
         </div>
       </div>
       <div class="msg-right flex-center">
@@ -81,6 +81,7 @@
 <script src="/bower_components/socket.io-client/socket.io.js"></script>
 <script src="/bower_components/vue/dist/vue.js"></script>
 <script src="/bower_components/twemoji/2/twemoji.js"></script>
+<script src="/bower_components/jquery_lazyload/jquery.lazyload.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 

@@ -85,10 +85,10 @@ body {
 
 @keyframes marquee {
   0% {
-    text-indent: 125%
+    transform: translateX(100%)
   }
   100% {
-    text-indent: -125%
+    transform: translateX(-100%)
   }
 }
 

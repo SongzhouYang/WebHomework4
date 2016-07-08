@@ -9,12 +9,16 @@ $(() => {
     type: 'get',
     async: false,
     success: (data) => {
-      data.forEach((element, index, array) => {
+      data.forEach((element, index) => {
         data[index].nickname = twemoji.parse(data[index].nickname);
         data[index].content = twemoji.parse(data[index].content);
       });
       Array.prototype.push.apply(oldData, data);
     }
+  });
+
+  $('img.lazy').lazyload({
+    effect: 'fadeIn'
   });
 
   const nomMsg = new Vue({
